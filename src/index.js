@@ -32,7 +32,7 @@ app.use(multer({
     storage: storage
 }).single('image'))
 
-app.use('/public', express.static('public'));
+app.use('/public', express.static(__dirname + 'public'));
 
 
 //Global variables - this is used for the format of one day ago.
