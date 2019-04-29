@@ -6,88 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Políticas Públicas</title>
     <%- include("partials/head")%>
-    <link href= "/assets/css/background.css" rel="stylesheet">
+    <link href= "/assets/css/cover.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container p-4 mt-5">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <img src="/assets/img/portada.jpeg" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="container p-4 mt-5 text-center animated bounceInLeft">
         <div class="row">
-            <div class="card-columns">
-                <%images.map(function(image){%>
-                    <div class="card animated bounceInLeft">
-                        <img src="<%= image.path %>" class="card-img-top" alt="">
+            <div class="col-md-6 offset-md-3">
+                <a href="/pages/1">
+                    <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><%= image.title %></h5>
-                            <p class="card-text"><%= image.description %></p>
-                            <p class="card-text"><%= format(image.created_at) %></p>
-                            <a href="/image/<%= image._id %>" class="btn btn-primary btn-block mb-2"><i class="fas fa-search"></i> Consulta Política</a>
-                            <a href="/edit/<%= image._id %>" class="btn btn-info "><i class="fas fa-pen"></i> Editar</a>
+                            <button class="btn btn-info btn-block">Consulta Políticas</button>
                         </div>
                     </div>
-                <% })%>
+                </a>
             </div>
         </div>
     </div>
     
-    <div class="row">
-        <!-- pagination -->
-        <% if(pages > 0) { %> <!-- show pagination if there is pages -->
-          <nav class="mx-auto">
-            <ul class="pagination">
-              <!-- FIRST ITEM -->
-              <% if(current == 1) { %>
-                <li class="page-item disabled">
-                  <a class="page-link" href="#">Inicio</a>
-                </li>
-              <% } else { %>
-                <li class="page-item">
-                  <a class="page-link" href="/pages/1">Inicio</a>
-                </li>
-              <% } %>
-              <!-- ITEMS  -->
-              <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
-              <% if(i !== 1) { %>
-                <li class="page-item disabled">
-                  <a class="page-link" href="#">...</a>
-                </li>
-              <% } %>
-              <% for(; i <= (Number(current) + 4) && i <= pages; i++) { %>
-                <% if(i == current) { %>
-                  <li class="page-item active">
-                    <a class="page-link" href="<%= i %>">
-                      <%= i %>
-                    </a>
-                  </li>
-                <% } else { %>
-                  <li class="page-item">
-                    <a class="page-link" href="/pages/<%= i %>">
-                      <%= i %>
-                    </a>
-                  </li>
-                <% } %>
-                <% if (i == Number(current) + 4 && i < pages) { %>
-                   <li class="page-item disabled">
-                     <a class="page-link" href="#">...</a>
-                   </li>
-                <% } %>
-              <% } %>
-              <!-- LAST ITEM -->
-              <% if(current == pages) { %>
-                <li class="page-item disabled">
-                  <a class="page-link" href="#">
-                    Fin
-                  </a>
-                </li>
-              <% } else { %>
-                <li class="page-item">
-                  <a class="page-link" href="/pages/<%= pages %>">
-                    Fin
-                  </a>
-                </li>
-              <% } %>
-            </ul>
-          </nav>
-        <% } %>
-      </div>
-    </div>
 </body>
 </html>

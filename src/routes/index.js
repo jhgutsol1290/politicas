@@ -7,23 +7,7 @@ const Image = require('../models/Image')
 
 //the first route is / . It is an asynchronous func so we use asyn await. The method used is GET, then we have a func (req, res), we assign await to the const images because it takes time in order to find in the DB, as Image is a model we can use the methos of monog in order no list(find()) the images selected. Finally, we use res. render, in order to render index.ejs, which route has been declared in views on the index file, then we pass images as an object in order to recieve it in the index.ejs and so we can manipulate all the amges found in the DB.
 router.get('/', async (req, res, next) =>{
-    let perPage = 9
-    let page = req.params.page || 1
-    
-    const image = await Image
-                    .find({})
-                    .skip((perPage*page) - perPage)
-                    .limit(perPage)
-                    .exec((err, images) =>{
-                        Image.count((err, countDocuments)=>{
-                            if (err) return next(err)
-                            res.render('index',{
-                                images,
-                                current: page,
-                                pages: Math.ceil(countDocuments / perPage)
-                            })
-                        })
-                    })
+    res.render('index')
 })
 
 //this route only renders a form that uploads data. It works with GET method
