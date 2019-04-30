@@ -46,7 +46,7 @@ router.get('/pages/:page', async(req, res, next)=>{
                     .skip((perPage*page) - perPage)
                     .limit(perPage)
                     .exec((err, images) =>{
-                        Image.count((err, countDocuments)=>{
+                        Image.countDocuments((err, countDocuments)=>{
                             if (err) return next(err)
                             res.render('pagination',{
                                 images,
