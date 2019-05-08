@@ -97,15 +97,17 @@
                 <div class="col-xl-9 col-sm-9 offset-md-3">
                   <hr id="separate">
                 </div>
-                <div class="col-xl-9 col-sm-9" id="progress">
-                  <p class="card-text"><b>Avance:</b></p>
-                    <ul>
-                      <% if(image.comments === ''){%>
-                        <li>No hay avance por el momento</li>
-                      <% }else{%>
-                      <li><%= image.comments %></li>
-                      <%}%>
-                    </ul>
+                <div class="container" id="progress">
+                  <div class="col-xl-9 col-md-9">
+                    <p class="card-text"><b>Avance:</b></p>
+                      <ul>
+                        <% if(image.comments === ''){%>
+                          <li>No hay avance por el momento</li>
+                        <% }else{%>
+                        <li><%= image.comments %></li>
+                        <%}%>
+                      </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -113,91 +115,8 @@
         </div>
       </div>
       </section>
+
+  
+
 </body>
 </html>
-<!--SECTION
-<section id="policies">
-        <div class="container-fluid">
-          <div class="row mt-3">
-            <div class="col-md-3">
-              <div class="card text-center data">
-                <div class="card-body">
-                  <h5 class="card-title">Número</h5>
-                  <p class="card-text" id="id"></p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card text-center data">
-                <div class="card-body">
-                  <h5 class="card-title">Eje</h5>
-                  <p class="card-text" id="eje"></p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card text-center data">
-                <div class="card-body">
-                  <h5 class="card-title">Fecha de presentación</h5>
-                  <p class="card-text">11/11/18</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card text-center data">
-                <div class="card-body">
-                  <h5 class="card-title">Status</h5>
-                  <p class="card-text" id="status">En Curso</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    
-    <div class="container-fluid mt-2">
-      <div class="row">
-        <div class="col-9">
-          <div class="card text-center graph">
-            <div class="card-body">
-              <h5 class="card-title">Status</h5>
-              <p class="card-text" id="status1"></p>
-              <div id="chart_div" class="mt-5">
-                Aquí se inserta la gráfica
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="card text-center data tweets">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <img src="https://serv2.raiolanetworks.es/wp-content/uploads/twitterlogodown.png" alt="twitter">
-                <p><em>3580</em></p>
-              </li>
-              <li class="list-group-item">
-                <img src="https://4.bp.blogspot.com/-wxEdzfW-Q24/WalfduyU6YI/AAAAAAAAJDU/7ZfmGGT7Hy0iTXyG467JCXCMaDuldnufgCLcBGAs/s1600/Radio_icon-icons.com_53189.png" alt="twitter">
-                <p><em>3580</em></p>
-              </li>
-              <li class="list-group-item">
-                <img src="https://image.freepik.com/vector-gratis/television-retro_23-2147503074.jpg" alt="twitter">
-                <p><em>3580</em></p>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="container-fluid mt-3">
-      <div class="row">
-        <div class="col-12">
-          <div class="card text-center graph">
-            <div class="card-body">
-              <p class="card-text">“En primer lugar, vamos a darle atención especial a los pueblos indígenas de México (en los programas del gobierno); es una ignominia que nuestros pueblos originarios vivan desde hace siglos bajo la opresión y el racismo, con la pobreza y la marginación a cuestas. Todos los programas del gobierno tendrán como población preferente a los pueblos indígenas de las diversas culturas del país”</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    </section>
-    -->

@@ -29,7 +29,13 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="text" name="status" class="form-control" placeholder="Status" value="<%= image.status %>">
+                            <select name="status" class="custom-select" id="status" required>
+                              <option selected><%= image.status %></option>
+                              <option>Sin iniciar</option>
+                              <option>Rota</option>
+                              <option>En proceso</option>
+                              <option>Cumplida</option>
+                            </select>    
                         </div>
 
                         <div class="form-group">

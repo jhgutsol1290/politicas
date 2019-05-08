@@ -19,7 +19,7 @@
                             <div class="input-group mb-3">
                                 <div class="custom-file">
                                     <input type="file" name="image" class="custom-file-input" id="inputGroupFile02">
-                                    <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
+                                    <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Selecciona imagen</label>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -36,7 +36,13 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="text" name="status" class="form-control" placeholder="Status">
+                                    <select name="status" class="custom-select" id="status" required>
+                                      <option selected>Status...</option>
+                                      <option>Sin iniciar</option>
+                                      <option>Rota</option>
+                                      <option>En proceso</option>
+                                      <option>Cumplida</option>
+                                    </select>    
                             </div>
 
                             <div class="form-group">

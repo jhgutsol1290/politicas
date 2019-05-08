@@ -33,6 +33,7 @@ router.post('/upload', async (req, res)=>{
     image.mimetype = req.file.mimetype
     image.size = req.file.size
 
+    console.log(image)
     await image.save()
     res.redirect('/pages/1')
 })
