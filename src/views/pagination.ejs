@@ -9,6 +9,36 @@
     <link href= "/assets/css/background.css" rel="stylesheet">
 </head>
 <body>
+  <div class="container pt-4 mt-5">
+    <div class="row">
+      <div class="col-2">
+            <a href="/pages/1">
+              <button class="btn btn-info btn-block"><i class="fas fa-filter"></i></i> Todas </button>
+            </a>
+      </div>
+      <div class="col-2">
+          <a href="/pages/1/Rota">
+            <button class="btn btn-info btn-block"><i class="fas fa-filter"></i></i> Rotas</button>
+          </a>
+      </div>
+      <div class="col-2">
+          <a href="/pages/1/SinIniciar">
+            <button class="btn btn-info btn-block"><i class="fas fa-filter"></i></i> Sin Iniciar</button>
+          </a>
+      </div>
+      <div class="col-2">
+          <a href="/pages/1/EnProceso">
+            <button class="btn btn-info btn-block"><i class="fas fa-filter"></i></i> En Proceso</button>
+          </a>
+      </div>
+      <div class="col-2">
+          <a href="/pages/1/Cumplida">
+            <button class="btn btn-info btn-block"><i class="fas fa-filter"></i></i> Cumplidas</button>
+          </a>
+      </div>
+      </div>
+    </div>
+  </div>
     <div class="container p-4 mt-5">
         <div class="row">
             <div class="card-columns">
@@ -18,7 +48,6 @@
                         <img src="<%= image.path %>" class="card-img-top" alt="">
                         <div class="card-body">
                             <h3 class="card-title text-center font-weight-bold"><%= image.title %></h3>
-                            <p class="card-text"><%= image.description %></p>
                             <!--<p class="card-text"><%= format(image.created_at) %></p>-->
                             <h5 class="card-text"><%= image.status %></h5>
                             <div class="card-footer bg-transparent mt-2">

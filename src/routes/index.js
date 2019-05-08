@@ -10,6 +10,11 @@ router.get('/', async (req, res, next) =>{
     res.render('index')
 })
 
+router.post('/', async (req, res, next) =>{
+    const {filtro} = req.body.filtro
+    console.log(filtro)
+})
+
 //this route only renders a form that uploads data. It works with GET method
 router.get('/upload', (req, res)=>{
     res.render('upload')
@@ -36,6 +41,60 @@ router.post('/upload', async (req, res)=>{
     console.log(image)
     await image.save()
     res.redirect('/pages/1')
+})
+
+router.get('/pages/:page/:filtro', async(req, res, next)=>{
+    let perPage = 9
+    let page = req.params.page || 1
+
+    let filtro = req.params.filtro
+
+    if(filtro === 'SinIniciar'){
+        const image = await Image
+                    .find({status: "Sin iniciar"})
+                    .skip((perPage*page) - perPage)
+                    .limit(perPage)
+                    .exec((err, images) =>{
+                        Image.countDocuments((err, countDocuments)=>{
+                            if (err) return next(err)
+                            res.render('pagination',{
+                                images,
+                                current: page,
+                                pages: Math.ceil(countDocuments / perPage)
+                            })
+                        })
+                    })
+    }else if(filtro === 'EnProceso'){
+        const image = await Image
+                    .find({status: 'En proceso'})
+                    .skip((perPage*page) - perPage)
+                    .limit(perPage)
+                    .exec((err, images) =>{
+                        Image.countDocuments((err, countDocuments)=>{
+                            if (err) return next(err)
+                            res.render('pagination',{
+                                images,
+                                current: page,
+                                pages: Math.ceil(countDocuments / perPage)
+                            })
+                        })
+                    })
+    }else{
+    const image = await Image
+                    .find({status: filtro})
+                    .skip((perPage*page) - perPage)
+                    .limit(perPage)
+                    .exec((err, images) =>{
+                        Image.countDocuments((err, countDocuments)=>{
+                            if (err) return next(err)
+                            res.render('pagination',{
+                                images,
+                                current: page,
+                                pages: Math.ceil(countDocuments / perPage)
+                            })
+                        })
+                    })
+        }
 })
 
 router.get('/pages/:page', async(req, res, next)=>{
