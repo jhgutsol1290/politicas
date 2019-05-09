@@ -17,29 +17,49 @@
             </a>
       </div>
       <div class="col-2">
+<<<<<<< HEAD
           <a href="/filter/Rota">
+=======
+          <a href="/filtro/Rota">
+>>>>>>> bd16ebda0f81b57508f37d27b4fad296ea9884e3
             <button class="btn btn-info btn-block"><i class="fas fa-filter"></i></i> Rotas</button>
           </a>
       </div>
       <div class="col-2">
+<<<<<<< HEAD
           <a href="/filter/SinIniciar">
+=======
+          <a href="/filtro/SinIniciar">
+>>>>>>> bd16ebda0f81b57508f37d27b4fad296ea9884e3
             <button class="btn btn-info btn-block"><i class="fas fa-filter"></i></i> Sin Iniciar</button>
           </a>
       </div>
       <div class="col-2">
+<<<<<<< HEAD
           <a href="/filter/EnProceso">
+=======
+          <a href="/filtro/EnProceso">
+>>>>>>> bd16ebda0f81b57508f37d27b4fad296ea9884e3
             <button class="btn btn-info btn-block"><i class="fas fa-filter"></i></i> En Proceso</button>
           </a>
       </div>
       <div class="col-2">
+<<<<<<< HEAD
           <a href="/filter/Cumplida">
+=======
+          <a href="/filtro/Cumplida">
+>>>>>>> bd16ebda0f81b57508f37d27b4fad296ea9884e3
             <button class="btn btn-info btn-block"><i class="fas fa-filter"></i></i> Cumplidas</button>
           </a>
       </div>
       </div>
     </div>
   </div>
+<<<<<<< HEAD
     <div class="container p-4 mt-2">
+=======
+    <div class="container p-4 mt-5">
+>>>>>>> bd16ebda0f81b57508f37d27b4fad296ea9884e3
         <div class="row">
             <div class="card-columns">
                 <%images.map(function(image){%>
@@ -49,6 +69,7 @@
                         <div class="card-body">
                             <h3 class="card-title text-center font-weight-bold"><%= image.title %></h3>
                             <!--<p class="card-text"><%= format(image.created_at) %></p>-->
+<<<<<<< HEAD
                             <% if(image.status === 'Sin iniciar'){%>
                               <h5 class="card-text text-center status" style="background-color: #e8e8e8"><%= image.status %></h5>
                             <%} else if(image.status === 'Rota'){%>
@@ -58,6 +79,9 @@
                             <%} else if(image.status === 'Cumplida'){%>
                               <h5 class="card-text text-center status" style="background-color: #a8e6cf"><%= image.status %></h5>
                             <%}%>
+=======
+                            <h5 class="card-text"><%= image.status %></h5>
+>>>>>>> bd16ebda0f81b57508f37d27b4fad296ea9884e3
                             <div class="card-footer bg-transparent mt-2">
                                 <a href="/edit/<%= image._id %>" class="btn btn-info"><i class="fas fa-pen"></i> Editar</a>
                             </div>
