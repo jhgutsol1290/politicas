@@ -43,57 +43,22 @@ router.post('/upload', async (req, res)=>{
     res.redirect('/pages/1')
 })
 
-router.get('/pages/:page/:filtro', async(req, res, next)=>{
-    let perPage = 9
-    let page = req.params.page || 1
+router.get('/filtro/:filtro', async(req, res, next)=>{
 
     let filtro = req.params.filtro
 
     if(filtro === 'SinIniciar'){
-        const image = await Image
+        const images = await Image
                     .find({status: "Sin iniciar"})
-                    .skip((perPage*page) - perPage)
-                    .limit(perPage)
-                    .exec((err, images) =>{
-                        Image.countDocuments((err, countDocuments)=>{
-                            if (err) return next(err)
-                            res.render('pagination',{
-                                images,
-                                current: page,
-                                pages: Math.ceil(countDocuments / perPage)
-                            })
-                        })
-                    })
+                    res.render('filter', {images})
     }else if(filtro === 'EnProceso'){
-        const image = await Image
+        const images = await Image
                     .find({status: 'En proceso'})
-                    .skip((perPage*page) - perPage)
-                    .limit(perPage)
-                    .exec((err, images) =>{
-                        Image.countDocuments((err, countDocuments)=>{
-                            if (err) return next(err)
-                            res.render('pagination',{
-                                images,
-                                current: page,
-                                pages: Math.ceil(countDocuments / perPage)
-                            })
-                        })
-                    })
+                    res.render('filter', {images})
     }else{
-    const image = await Image
+    const images = await Image
                     .find({status: filtro})
-                    .skip((perPage*page) - perPage)
-                    .limit(perPage)
-                    .exec((err, images) =>{
-                        Image.countDocuments((err, countDocuments)=>{
-                            if (err) return next(err)
-                            res.render('pagination',{
-                                images,
-                                current: page,
-                                pages: Math.ceil(countDocuments / perPage)
-                            })
-                        })
-                    })
+                    res.render('filter', {images})
         }
 })
 

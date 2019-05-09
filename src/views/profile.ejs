@@ -22,24 +22,24 @@
               <div class="col-md-3">
                 <div class="card text-center data">
                   <div class="card-body">
-                    <h5 class="card-title"><u>Eje</u></h5>
-                    <p class="card-text" id="eje"><%= image.axis %></p>
+                    <h5 class="card-title display-5">Eje</h5>
+                    <p class="card-text text-uppercase" id="eje"><%= image.axis %></p>
                   </div>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="card text-center data">
                   <div class="card-body">
-                    <h5 class="card-title"><u>Fecha de presentación</u></h5>
-                    <p class="card-text"><%= image.presented.toDateString() %></p>
+                    <h5 class="card-title">Fecha de presentación</h5>
+                    <p class="card-text text-uppercase"><%= image.presented.toDateString() %></p>
                   </div>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="card text-center data">
                   <div class="card-body">
-                    <h5 class="card-title"><u>Grado de Cumplimineto</u></h5>
-                    <p class="card-text" id="status"><%= image.status %></p>
+                    <h5 class="card-title">Grado de Cumplimineto</h5>
+                    <p class="card-text text-uppercase" id="status"><%= image.status %></p>
                   </div>
                 </div>
               </div>
@@ -51,7 +51,7 @@
           <div class="col-9">
             <div class="card text-center graph">
               <div class="card-body">
-                <h3 class="card-title"><u>Grado de Cumplimiento</u></h3>
+                <h3 class="card-title">Grado de Cumplimiento</h3>
                 <div id="chart_div" class="mt-2">
                   <% if(image.status === 'Sin iniciar'){%>
                     <img class="img-fluid animated bounceInLeft delay-1s img-graph" src="/assets/img/sinIniciar.jpg" alt="Sin iniciar">
