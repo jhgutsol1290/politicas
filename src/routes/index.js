@@ -43,57 +43,22 @@ router.post('/upload', async (req, res)=>{
     res.redirect('/pages/1')
 })
 
-router.get('/pages/:page/:filtro', async(req, res, next)=>{
-    let perPage = 9
-    let page = req.params.page || 1
+router.get('/filter/:filtro', async(req, res, next)=>{
 
     let filtro = req.params.filtro
 
     if(filtro === 'SinIniciar'){
-        const image = await Image
+        const images = await Image
                     .find({status: "Sin iniciar"})
-                    .skip((perPage*page) - perPage)
-                    .limit(perPage)
-                    .exec((err, images) =>{
-                        Image.countDocuments((err, countDocuments)=>{
-                            if (err) return next(err)
-                            res.render('pagination',{
-                                images,
-                                current: page,
-                                pages: Math.ceil(countDocuments / perPage)
-                            })
-                        })
-                    })
+                    res.render('filter', {images})
     }else if(filtro === 'EnProceso'){
-        const image = await Image
+        const images = await Image
                     .find({status: 'En proceso'})
-                    .skip((perPage*page) - perPage)
-                    .limit(perPage)
-                    .exec((err, images) =>{
-                        Image.countDocuments((err, countDocuments)=>{
-                            if (err) return next(err)
-                            res.render('pagination',{
-                                images,
-                                current: page,
-                                pages: Math.ceil(countDocuments / perPage)
-                            })
-                        })
-                    })
+                    res.render('filter', {images})
     }else{
-    const image = await Image
+    const images = await Image
                     .find({status: filtro})
-                    .skip((perPage*page) - perPage)
-                    .limit(perPage)
-                    .exec((err, images) =>{
-                        Image.countDocuments((err, countDocuments)=>{
-                            if (err) return next(err)
-                            res.render('pagination',{
-                                images,
-                                current: page,
-                                pages: Math.ceil(countDocuments / perPage)
-                            })
-                        })
-                    })
+                    res.render('filter', {images})
         }
 })
 
@@ -115,6 +80,27 @@ router.get('/pages/:page', async(req, res, next)=>{
                             })
                         })
                     })
+})
+
+/* router.get('/search', async(req, res, next)=>{
+    let perPage = 9
+    let page = req.params.page || 1
+    
+    const word = req.word
+    console.log(word)
+    const images = await Image 
+                    .find({description: word})
+    res.render('search', {images})
+                    
+}) */
+
+
+router.get('/search', async(req, res, next)=>{
+    const {title} = req.query
+    console.log(title)
+    const images = await Image 
+                            .find({title: {$regex: '.*'+title+'.*', $options: 'i'}})
+    res.render('search', {images})
 })
 
 //when consulting a single image we have to pass through URL the id of the image. We recieve the id from req.params (from URL) and save it into {id}, then we use a mongo method in order to  find it by id on DB. Then render the profile.ejs file passing image as property in order to manipulate data based on the single element.
