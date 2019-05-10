@@ -43,11 +43,9 @@ router.post('/upload', async (req, res)=>{
     res.redirect('/pages/1')
 })
 
-<<<<<<< HEAD
+
 router.get('/filter/:filtro', async(req, res, next)=>{
-=======
-router.get('/filtro/:filtro', async(req, res, next)=>{
->>>>>>> bd16ebda0f81b57508f37d27b4fad296ea9884e3
+
 
     let filtro = req.params.filtro
 
