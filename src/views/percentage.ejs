@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Políticas Públicas</title>
+    <%- include("partials/head")%>
+    <link href= "/assets/css/background.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container pt-4 mt-5">
+    <div class="row">
+      <div class="col-sm-2">
+            <a href="/pages/1">
+              <button class="btn btn-info btn-block"><i class="fas fa-filter"></i></i> Todas </button>
+            </a>
+      </div>
+      <div class="col-sm-2">
+          <a href="/filter/Rota">
+            <button class="btn btn-info btn-block"><i class="fas fa-filter"></i></i> Rotas</button>
+          </a>
+      </div>
+      <div class="col-sm-2">
+          <a href="/filter/SinIniciar">
+            <button class="btn btn-info btn-block"><i class="fas fa-filter"></i></i> Sin Iniciar</button>
+          </a>
+      </div>
+      <div class="col-sm-2">
+          <a href="/filter/EnProceso">
+            <button class="btn btn-info btn-block"><i class="fas fa-filter"></i></i> En Proceso</button>
+          </a>
+      </div>
+      <div class="col-sm-2">
+          <a href="/filter/Cumplida">
+            <button class="btn btn-info btn-block"><i class="fas fa-filter"></i></i> Cumplidas</button>
+          </a>
+      </div>
+      <div class="col-sm-2">
+        <a href="/percentage">
+          <button class="btn btn-info btn-block"><i class="fas fa-filter"></i></i> Porcentajes</button>
+        </a>
+    </div>
+      </div>
+    </div>
+  </div>
+
+ 
+
+  <% var cont1 = 0; %>
+  <% var cont2 = 0; %>
+  <% var cont3 = 0; %>
+  <% var cont4 = 0; %>
+  <% var cont5 = 0; %>
+  <%images.map(function(image, index){%>
+    <% if(image.status === 'Rota'){%>
+        <% cont1 = cont1 + 1 %>
+    <%} else if(image.status === 'Sin iniciar'){%>
+        <% cont2 = cont2 + 1 %>
+    <%} else if(image.status === 'En proceso'){%>
+        <% cont3 = cont3 + 1 %>
+    <%} else if(image.status === 'Cumplida'){%>
+        <% cont4 = cont4 + 1 %>
+    <%}%>
+    <% cont5 = index + 1 %>
+  <%})%>
+
+  <div class="container mt-5 text-center animated bounceInUp">
+      <div class="row">
+          <div class="col-md-12">
+            <table class="table">
+                <thead class="thead text-white" style="background-color: #051c48;">
+                  <tr>
+                    <th scope="col">Status</th>
+                    <th scope="col">Porcentaje de cumplimiento</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <tr class="table-danger">
+                    <th scope="row">Rotas</th>
+                    <td><%- cont1  %></td>
+                </tr>
+                  <tr class="table-secondary">
+                    <th scope="row">Sin Iniciar</th>
+                    <td><%- cont2  %></td>
+                  </tr>
+                  <tr class="table-warning">
+                    <th scope="row">En proceso</th>
+                    <td><%- cont3  %></td>
+                  </tr>
+                  <tr class="table-success">
+                    <th scope="row">Cumplidas</th>
+                    <td><%- cont4  %></td>
+                  </tr>
+                  <tr class="table-dark">
+                    <th scope="row">Total</th>
+                    <td><%- cont5  %></td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+
+
+</body>
+</html>

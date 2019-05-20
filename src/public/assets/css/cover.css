@@ -1,15 +1,10 @@
 body{
-    background-image: url(../img/blanco.jpg);
+    background-image: url(../img/Portada.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Ubuntu', sans-serif;
     text-align: justify;
     overflow: hidden;
-}
-
-img{
-    position: absolute;
-    width: 100%; 
 }
 
 .card{

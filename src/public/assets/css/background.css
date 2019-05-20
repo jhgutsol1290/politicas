@@ -30,3 +30,10 @@ a:hover{
 img:hover{
     opacity: 0.8;
 }
+
+/******TABLES******/
+table{
+    border-collapse: collapse;
+    border-radius: 0.8em;
+    overflow: hidden;
+}

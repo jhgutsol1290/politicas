@@ -101,8 +101,13 @@ router.get('/search', async(req, res, next)=>{
     const {title} = req.query
     console.log(title)
     const images = await Image 
-                            .find({title: {$regex: '.*'+title+'.*', $options: 'i'}})
+                            .find({$or: [{title: {$regex: '.*'+title+'.*', $options: 'i'}}, {axis: {$regex: '.*'+title+'.*', $options: 'i'}}]})
     res.render('search', {images})
+})
+
+router.get('/percentage', async(req, res)=>{
+    const images = await Image.find({})
+    res.render('percentage', {images})
 })
 
 //when consulting a single image we have to pass through URL the id of the image. We recieve the id from req.params (from URL) and save it into {id}, then we use a mongo method in order to  find it by id on DB. Then render the profile.ejs file passing image as property in order to manipulate data based on the single element.
@@ -123,7 +128,7 @@ router.get('/edit/:id', async (req, res)=>{
 //the method post updates a single policy, so we recieve the id from req.params, then we update what we recieve from req.body finfind the id recieved before. then we redirect to /.
 router.post('/edit/:id', async (req, res)=>{
     const {id} = req.params
-    await Image.update({_id:id}, req.body)
+    await Image.updateOne({_id:id}, req.body)
     res.redirect('/pages/1')
 })
 
