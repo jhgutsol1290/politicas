@@ -7,6 +7,12 @@
     <title>Políticas Públicas</title>
     <%- include("partials/head")%>
     <link href= "/assets/css/background.css" rel="stylesheet">
+
+        <!--CDN CHARTJS-->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+        <!--jQuery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 </head>
 <body>
   <div class="container pt-4 mt-5">
@@ -38,7 +44,7 @@
       </div>
       <div class="col-sm-2">
         <a href="/percentage">
-          <button class="btn btn-info btn-block"><i class="fas fa-filter"></i></i> Porcentajes</button>
+          <button class="btn btn-info btn-block"><i class="fas fa-filter"></i></i> Ver Cifras</button>
         </a>
     </div>
       </div>
@@ -52,6 +58,11 @@
   <% var cont3 = 0; %>
   <% var cont4 = 0; %>
   <% var cont5 = 0; %>
+  <% var cont6 = 0; %>
+  <% var cont7 = 0; %>
+  <% var cont8 = 0; %>
+  <% var cont9 = 0; %>
+  <% var cont10 = 0; %>
   <%images.map(function(image, index){%>
     <% if(image.status === 'Rota'){%>
         <% cont1 = cont1 + 1 %>
@@ -63,6 +74,12 @@
         <% cont4 = cont4 + 1 %>
     <%}%>
     <% cont5 = index + 1 %>
+
+    <% cont6 = (cont1*100)/cont5 %>
+    <% cont7 = (cont2*100)/cont5 %>
+    <% cont8 = (cont3*100)/cont5 %>
+    <% cont9 = (cont4*100)/cont5 %>
+    <% cont10 = (cont5*100)/cont5 %>
   <%})%>
 
   <div class="container mt-5 text-center animated bounceInUp">
@@ -72,29 +89,35 @@
                 <thead class="thead text-white" style="background-color: #051c48;">
                   <tr>
                     <th scope="col">Status</th>
-                    <th scope="col">Porcentaje de cumplimiento</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Porcentaje de Cumplimiento</th>
                   </tr>
                 </thead>
                 <tbody>
                 <tr class="table-danger">
                     <th scope="row">Rotas</th>
-                    <td><%- cont1  %></td>
+                    <td id="cont1"><%- cont1  %></td>
+                    <td><%- cont6  %> %</td>
                 </tr>
                   <tr class="table-secondary">
                     <th scope="row">Sin Iniciar</th>
-                    <td><%- cont2  %></td>
+                    <td id="cont2"><%- cont2  %></td>
+                    <td><%- cont7  %> %</td>
                   </tr>
                   <tr class="table-warning">
                     <th scope="row">En proceso</th>
-                    <td><%- cont3  %></td>
+                    <td id="cont3"><%- cont3  %></td>
+                    <td><%- cont8  %> %</td>
                   </tr>
                   <tr class="table-success">
                     <th scope="row">Cumplidas</th>
-                    <td><%- cont4  %></td>
+                    <td id="cont4"><%- cont4  %></td>
+                    <td><%- cont9  %> %</td>
                   </tr>
                   <tr class="table-dark">
                     <th scope="row">Total</th>
-                    <td><%- cont5  %></td>
+                    <td id="cont5"><%- cont5  %></td>
+                    <td><%- cont10  %> %</td>
                   </tr>
                 </tbody>
               </table>
@@ -102,6 +125,10 @@
       </div>
   </div>
 
+  <div class="container" style="width: 45%;">
+		<canvas id="canvas"></canvas>
+  </div>
 
+<script src="/assets/js/graphs.js"></script>
 </body>
 </html>
