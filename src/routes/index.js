@@ -102,7 +102,7 @@ router.get('/search', async(req, res, next)=>{
     console.log(title)
     const images = await Image 
                             .find({$or: [{title: {$regex: '.*'+title+'.*', $options: 'i'}}, 
-                                        {axis: {$regex: '.*'+title+'.*', $options: 'i'}}]})
+                                        {description: {$regex: '.*'+title+'.*', $options: 'i'}}]})
     res.render('search', {images})
 })
 

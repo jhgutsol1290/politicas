@@ -30,6 +30,28 @@
       <input class="form-control mr-sm-2" type="search" placeholder="Palabra clave..." name="title" aria-label="Search">
       <button class="btn btn-outline-info my-2 my-sm-0" type="submit"><i class="fas fa-search"></i> Buscar</button>
     </form>
+    <form method="GET" action="/search" class="form-inline my-2 mx-3 my-lg-0">
+      <div class="form-group">
+        <select name="title" class="custom-select" id="axis" required>
+          <option selected> Filtrar por eje...</option>
+          <option>Desarrollo Social</option>
+          <option>Salud</option>
+          <option>Educación</option>
+          <option>Cultura</option>
+          <option>Gobierno</option>
+          <option>Economía e Infraestructura</option>
+          <option>Corrupción</option>
+          <option>Austeridad</option>
+          <option>Seguridad</option>
+          <option>Energía</option>
+          <option>Medio Ambiente</option>
+          <option>Telecomunicaciones</option>
+          <option>Derechos y Programas Sociales</option>
+          <option>Relaciones Exteriores</option>
+        </select>    
+    </div>
+      <button class="btn btn-outline-info my-2 my-sm-0 mx-2" type="submit"><i class="fas fa-filter"></i> Aplicar</button>
+    </form>
   </div>
   </nav>
 
