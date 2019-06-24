@@ -30,7 +30,7 @@
               <div class="col-md-3">
                 <div class="card text-center data">
                   <div class="card-body">
-                    <h5 class="card-title font-weight-bold">Fecha de presentación (mes/AÑO)</h5>
+                    <h5 class="card-title font-weight-bold">Fecha de actualización (mes/AÑO)</h5>
                     <p class="card-text text-uppercase"><%= image.presented.getUTCMonth() + 1 %> / <%= image.presented.getUTCFullYear() %></p>
                   </div>
                 </div>
@@ -74,11 +74,11 @@
                   <p><em><%= image.tweets %></em></p>
                 </li>
                 <li class="list-group-item">
-                  <img src="https://4.bp.blogspot.com/-wxEdzfW-Q24/WalfduyU6YI/AAAAAAAAJDU/7ZfmGGT7Hy0iTXyG467JCXCMaDuldnufgCLcBGAs/s1600/Radio_icon-icons.com_53189.png" class="img-fluid" alt="twitter">
+                  <img src="https://3.bp.blogspot.com/-DuAGvPFFfSE/U-fnCpfz27I/AAAAAAAAC5k/FvHeqHNdVNI/s1600/tv-radio.png" class="img-fluid" alt="twitter">
                   <p><em><%= image.radio %></em></p>
                 </li>
                 <li class="list-group-item">
-                  <img src="https://image.freepik.com/vector-gratis/television-retro_23-2147503074.jpg" class="img-fluid" alt="twitter">
+                  <img src="https://www.sistersandthecity.com/wp-content/themes/sistersandthecity-child/assets/images/prensa.png" class="img-fluid" alt="twitter">
                   <p><em><%= image.tv %></em></p>
                 </li>
               </ul>
@@ -104,7 +104,7 @@
                         <% if(image.comments === ''){%>
                           <li>No hay avance por el momento</li>
                         <% }else{%>
-                        <li><%= image.comments %></li>
+                        <li id="comments-text"><%= image.comments %></li>
                         <%}%>
                       </ul>
                   </div>
@@ -116,7 +116,23 @@
       </div>
       </section>
 
-  
+<script>
+  const data = document.getElementById('comments-text').textContent
+  const separador = '.'
+
+  const newArray = data.split(separador)
+  const dataText = document.getElementById('comments-text')
+
+  document.getElementById('comments-text').textContent = ''
+  newArray.map((el, i)=>{
+    dataText.innerHTML += `
+      <li>${el}.</li>
+    `
+  })
+
+
+
+</script>
 
 </body>
 </html>

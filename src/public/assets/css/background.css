@@ -31,6 +31,11 @@ img:hover{
     opacity: 0.8;
 }
 
+#btn-delete{
+    background-color: #ff7777;
+    color: white;
+}
+
 /******TABLES******/
 table{
     border-collapse: collapse;

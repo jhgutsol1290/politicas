@@ -9,26 +9,37 @@
     <link href= "/assets/css/background.css" rel="stylesheet">
 </head>
 
-<div class="container p-4 mt-5 animated bounceInRight">
+<div class="container p-4 mt-5 animated bounceInDown">
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-body">
                     <form action="/edit/<%=  image._id %>" method="POST" enctype="multipart/form-data">
 
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" name="image" class="custom-file-input" id="inputGroupFile02" autofocus required>
+                                <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Selecciona imagen</label>
+                            </div>
+                        </div>
+
                         <div class="form-group">
-                            <input type="text" name="title" placeholder="Título" class="form-control" value="<%= image.title %>">
+                            <label for="title">Título:</label>
+                            <input type="text" name="title" placeholder="Título" class="form-control" value="<%= image.title %>" required>
                         </div>
 
                           <div class="form-group">
-                              <input type="text" name="description" class="form-control" placeholder="Descripción" value="<%= image.description %>">
+                              <label for="description">Descripción:</label>
+                              <input type="text" name="description" class="form-control" placeholder="Descripción" value="<%= image.description %>" required>
                           </div>
 
                           <div class="form-group">
-                            <input type="text" name="axis" class="form-control" placeholder="Eje" value="<%= image.axis %>">
+                            <label for="axis">Eje:</label>
+                            <input type="text" name="axis" class="form-control" placeholder="Eje" value="<%= image.axis %>" required>
                         </div>
 
                         <div class="form-group">
+                            <label for="status">Grado de cumplimiento:</label>
                             <select name="status" class="custom-select" id="status" required>
                               <option selected><%= image.status %></option>
                               <option>Sin iniciar</option>
@@ -39,19 +50,28 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="text" name="tweets" class="form-control" placeholder="Tweets" value="<%= image.tweets %>">
+                            <label for="tweets">Fecha de actualización:</label>
+                            <input type="date" name="presented" class="form-control" placeholder="Fecha presentación" required>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" name="radio" class="form-control" placeholder="Radio" value="<%= image.radio %>">
+                            <label for="tweets">Tendencias generadas:</label>
+                            <input type="text" name="tweets" class="form-control" onkeyup="format(this)" onchange="format(this)" placeholder="Tweets" value="<%= image.tweets %>" required>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" name="tv" class="form-control" placeholder="TV" value="<%= image.tv %>">
+                            <label for="radio">Radio y TV:</label>
+                            <input type="text" name="radio" class="form-control" placeholder="Radio" value="<%= image.radio %>" required>
                         </div>
 
                         <div class="form-group">
-                            <textarea type="text" rows="5" cols="70" name="comments" class="form-control"><%= image.comments %></textarea>
+                            <label for="tv">Prensa y portales:</label>
+                            <input type="text" name="tv" class="form-control" placeholder="Prensa y portales" value="<%= image.tv %>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="comments">Avances:</label>
+                            <textarea type="text" rows="5" cols="70" name="comments" class="form-control" required><%= image.comments %></textarea>
                         </div>
 
                           <div class="form-group">
@@ -66,5 +86,7 @@
     </div>
 </div>
 
+
+<script src="/assets/js/format.js"></script>
 </body>
 </html>

@@ -114,7 +114,7 @@ router.get('/percentage', async(req, res)=>{
 //when consulting a single image we have to pass through URL the id of the image. We recieve the id from req.params (from URL) and save it into {id}, then we use a mongo method in order to  find it by id on DB. Then render the profile.ejs file passing image as property in order to manipulate data based on the single element.
 router.get('/image/:id', async (req, res)=>{
     const {id} = req.params
-    const image = await Image.findById(id)
+    let image = await Image.findById(id)
     console.log(image)
     res.render('profile', {image})
 })
@@ -134,8 +134,11 @@ router.post('/edit/:id', async (req, res)=>{
 })
 
 //this route is not used in the project, but it can be used in order to delete a policy.
-router.get('/image/:id/delete', (req, res)=>{
-    res.send('Image deleted')
+router.get('/delete/:id', async (req, res)=>{
+    const id = req.params.id
+
+    await Image.deleteOne({_id:id})
+    res.redirect('/pages/1')
 })
 
 //we have to export, then it is available on index file than runs the server.
