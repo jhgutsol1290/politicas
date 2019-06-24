@@ -64,7 +64,8 @@
                               <h5 class="card-text text-center status" style="background-color: #a8e6cf"><%= image.status %></h5>
                             <%}%>
                             <div class="card-footer bg-transparent mt-2">
-                                <a href="/edit/<%= image._id %>" class="btn btn-info"><i class="fas fa-pen"></i> Editar</a>
+                                <a href="/edit/<%= image._id %>" class="btn btn-info mr-3 m-1"><i class="fas fa-pen"></i> Editar</a>
+                                <a href="/delete/<%= image._id %>" class="btn m-1" id="btn-delete"><i class="far fa-trash-alt"></i> Eliminar</a>
                             </div>
                         </div>
                     </div>
