@@ -7,7 +7,7 @@ function format(input){
     }
     
     else{ 
-        alert('Solo se permiten numeros');
+        alert('Sólo se permiten números');
         input.value = input.value.replace(/[^\d\.]*/g,'');
     }
 }
